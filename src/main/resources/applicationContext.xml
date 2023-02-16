@@ -10,10 +10,21 @@
         <property name="username" value="谢亮辉"/>
     </bean>
 
-<!--    依赖注入（setter方法）-->
+    <!--    方式一：构造方法实例化bean-->
     <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl"/>
+<!--    这是setter-->
     <bean id="bookService" class="com.itheima.service.impl.BookServiceImpl">
         <property name="bookDao" ref="bookDao"/>
     </bean>
+
+    <!--    方式二：使用静态工厂实例化对象-->
+<!--    <bean id="orderDao" class="com.itheima.factory.OrderDaoFactory" factory-method="getOrderDao"/>-->
+
+<!--    方式三：使用实例工厂实例化对象-->
+<!--    <bean id="userFactory" class="com.itheima.factory.UserDaoFactory"/>-->
+<!--    <bean id="userDao" factory-bean="userFactory" factory-method="getUserDao"/>-->
+
+<!--    方式四：使用FactoryBean实例化bean-->
+    <bean id="userDao" class="com.itheima.factory.UserDaoFactoryBean"/>
 
 </beans>
