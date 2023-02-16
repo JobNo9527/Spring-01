@@ -10,42 +10,10 @@
         <property name="username" value="谢亮辉"/>
     </bean>
 
-    <!--    动态代理解析之构造方法注入-->
-<!--    <bean id="user1" class="com.itheima.User1">-->
-<!--        &lt;!&ndash;-->
-<!--                确定参数：-->
-<!--                    name属性：通过参数的名称进行赋值-->
-<!--                    type属性：通过参数的类型进行赋值，对于相同类型来说，需要按顺序，不然赋值混乱-->
-<!--                    index属性：通过参数的索引进行赋值，从零开始-->
-<!--                给属性赋值：-->
-<!--                    value:给基本类型赋值-->
-<!--                    ref:给引用性类型赋值-->
-<!--        &ndash;&gt;-->
-<!--        &lt;!&ndash;        <constructor-arg name="id" value="1"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <constructor-arg name="username" value="张三"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <constructor-arg name="password" value="123"/>&ndash;&gt;-->
+<!--    依赖注入（setter方法）-->
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl"/>
+    <bean id="bookService" class="com.itheima.service.impl.BookServiceImpl">
+        <property name="bookDao" ref="bookDao"/>
+    </bean>
 
-<!--        &lt;!&ndash;        <constructor-arg type="java.lang.Integer" value="1"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <constructor-arg type="java.lang.String" value="张三"/>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <constructor-arg type="java.lang.String" value="123"/>&ndash;&gt;-->
-<!--        <constructor-arg index="0" value="1"/>-->
-<!--        <constructor-arg index="1" value="张三"/>-->
-<!--        <constructor-arg index="2" value="123"/>-->
-<!--    </bean>-->
-
-<!--    &lt;!&ndash;    动态代理解析之setter方法注入-->
-<!--                name的值：准确的应该是setter方法去掉set后的剩下字符串，但是又要符合驼峰命名，所以才出现第一个字符是lowercase-->
-<!--    &ndash;&gt;-->
-<!--    <bean id="user2" class="com.itheima.User2">-->
-<!--        <property name="id" value="1"/>-->
-<!--        <property name="username" value="李四"/>-->
-<!--        <property name="password" value="456"/>-->
-<!--        <property name="user1" ref="user1"/>-->
-<!--    </bean>-->
-
-<!--    &lt;!&ndash;    演示对象的依赖注入&ndash;&gt;-->
-<!--    <bean id="userDao" class="com.itheima.dao.impl.UserDaoImpl"/>-->
-<!--    <bean class="com.itheima.service.impl.UserServiceImpl" id="userService">-->
-<!--        <property name="userDao" ref="userDao"/>-->
-<!--    </bean>-->
 </beans>

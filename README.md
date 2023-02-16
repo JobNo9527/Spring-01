@@ -20,7 +20,7 @@
 
 ### 二、控制反转（Inversion of control，简称Ioc）
 
-<img src="src/main/resources/img/noIoc.png" alt="noIoc">
+<img src="src/main/resources/img/notIoc.png" alt="noIoc">
 
 > #### 传统面向对象创建程序图
 >> 由应用程序主动去创建，赋值和销毁对象，商品信息类设计setter方法注入信息至商品类
